@@ -1,0 +1,24 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+  pre_build:
+    commands:
+      - echo Build started on `date`
+  build:
+    commands:
+      - npm install
+  test:
+    commands:
+      - npm run test
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: public

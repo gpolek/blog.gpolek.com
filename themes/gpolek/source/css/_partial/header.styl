@@ -1,0 +1,83 @@
+#header
+  max-width: 710px
+  width: 100%
+  margin: 0 auto 3rem auto
+
+  h1, .h1
+    letter-spacing: 0.01em
+    font-size: 1.5rem
+    line-height: 2rem
+    font-style: normal
+    font-weight: 900
+    color: $color-logo
+    text-transform: uppercase
+    font-family: "Montserrat"
+    margin-top: 0
+    margin-bottom: 0
+    antialias()
+
+  i
+    color: #bbb
+
+  a
+    color: inherit
+    text-decoration: none
+    background: none
+
+  #nav
+    letter-spacing: 0.01em
+    font-size: .8rem
+    font-style: normal
+    font-weight: 200
+    color: $color-accent
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 0
+      line-height: 15px
+      a
+        margin-right: 15px
+        color: color-accent
+        text-transform: uppercase
+      a:hover
+          text-decoration: none
+      li
+        display: inline-block
+        vertical-align: middle
+        margin-right: 15px
+      .icon
+        display: none
+      li:last-child
+        border-right: 0
+        margin-right: 0
+        a
+          margin-right: 0
+
+#header:hover
+  #logo
+    -webkit-filter: none
+    filter: none
+
+@media screen and (max-width:480px)
+  #header #title
+    padding-top: (logo-height / 2) - 16
+    padding-bottom: (logo-height / 2) - 16
+  #header #nav
+    ul
+      a:hover
+        background: none
+      li
+        display: none
+        border-right: 0
+      li.icon
+        display: inline-block
+        position: absolute
+        top: 55px
+        right: 1rem
+    ul.responsive
+      li
+        display: block;
+    li:not(:first-child)
+        padding-top: 1rem
+        padding-left: logo-width + 20px
+        font-size: 1rem

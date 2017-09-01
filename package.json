@@ -6,7 +6,7 @@
     "server": "hexo server",
     "clean": "hexo clean",
     "build": "hexo generate",
-    "deploy": "aws s3 sync ./public s3://gpolek.com --acl public-read --delete"
+    "deploy": "aws s3 sync ./public s3://gpolek.com --acl public-read --delete",
   },
   "hexo": {
     "version": "3.2.2"
@@ -22,5 +22,13 @@
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
+  },
+  "devDependencies": {
+    "markdownlint": "^0.6.0",
+    "markdownlint-cli": "^0.3.1",
+    "htmllint": "^0.6.0",
+    "htmllint-cli": "^0.0.6",
+    "csslint": "^1.0.5",
+    "jslint": "^0.11.0"
   }
 }

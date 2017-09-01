@@ -6,7 +6,7 @@
     "server": "hexo server",
     "clean": "hexo clean",
     "build": "hexo generate",
-    "deploy": "aws s3 sync ./public s3://gpolek.com --acl public-read --delete",
+    "deploy": "aws s3 sync ./public s3://gpolek.com --acl public-read --delete"
   },
   "hexo": {
     "version": "3.2.2"

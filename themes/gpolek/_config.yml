@@ -36,7 +36,7 @@ rss: false
 
 # Plugins
 plugins:
-    disqus_shortname: # Disqus Comments Shortname
+    disqus_shortname: https-blog-gpolek-com
     google_analytics: # enter the tracking ID for your Google Analytics
 
 # Miscellaneous

@@ -9,7 +9,7 @@
     "deploy": "aws --profile gpolek s3 sync ./public s3://blog.gpolek.com --acl public-read --delete"
   },
   "hexo": {
-    "version": "3.2.2"
+    "version": "3.9.0"
   },
   "dependencies": {
     "hexo": "^3.2.0",

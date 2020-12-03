@@ -1,6 +1,6 @@
-# gpolek.com [![Build Status](https://travis-ci.org/gpolek/gpolek.com.svg?branch=master)](https://travis-ci.org/gpolek/gpolek.com)
+# blog.gpolek.iocom [![Build Status](https://travis-ci.org/gpolek/blog.gpolek.iocom.svg?branch=master)](https://travis-ci.org/gpolek/blog)
 
-Source codes of blog hosted under gpolek.com
+Source codes of blog hosted under blog.gpolek.com
 
 ### Development
 

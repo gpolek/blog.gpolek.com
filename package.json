@@ -1,12 +1,12 @@
 {
-  "name": "gpolek.com",
+  "name": "blog.gpolek.com",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "server": "hexo server",
+    "start": "hexo server",
     "clean": "hexo clean",
     "build": "hexo generate",
-    "deploy": "aws s3 sync ./public s3://gpolek.com --acl public-read --delete"
+    "deploy": "aws --profile gpolek s3 sync ./public s3://blog.gpolek.com --acl public-read --delete"
   },
   "hexo": {
     "version": "3.2.2"

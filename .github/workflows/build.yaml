@@ -16,6 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # https://github.com/zalando-incubator/hexo-theme-doc/issues/149 workaround
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
       # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
       - name: Cache node modules
         uses: actions/cache@v1

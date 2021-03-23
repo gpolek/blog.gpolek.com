@@ -1,0 +1,53 @@
+name: build-and-deploy
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      # Set up Google Cloud Platform's SDK
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.gcp_project_id }}
+          service_account_key: ${{ secrets.gcp_credentials }}
+          export_default_credentials: true
+
+      - name: Generate
+        run: hexo generate
+
+      # Deploy to blog.gpolek.com
+      - name: Deploy blog.gpolek.com
+        run: gsutil -m rsync -d -c -r ./public gs://blog.gpolek.com
+
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=3600" gs://blog.gpolek.com/**/*.html
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://blog.gpolek.com/js/*.js
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://blog.gpolek.com/css/*.css
+
+      #- run: gsutil iam ch allUsers:objectViewer gs://blog.gpolek.com
+      #- run: gsutil web set -m index.html -e 404.html gs://blog.gpolek.com

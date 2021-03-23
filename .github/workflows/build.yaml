@@ -38,6 +38,8 @@ jobs:
           service_account_key: ${{ secrets.gcp_credentials }}
           export_default_credentials: true
 
+      - run: npm run clean
+
       - name: Build
         run: npm run build
 
